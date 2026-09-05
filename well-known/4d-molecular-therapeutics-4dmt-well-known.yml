@@ -1,0 +1,100 @@
+generated: '2026-09-05'
+method: probed
+source: live GET of the named /.well-known/ path list on every host this record knows
+note: >-
+  Every named discovery path was probed on all four hosts and every one missed. The three
+  4DMT-controlled hosts (4dmoleculartherapeutics.com, its www alias, and the 4dmt.com alias
+  which 301s to the same WordPress origin) return the site's standard HTML 404 page for all
+  paths. The path-echo negative control also returned 404 on those hosts, so the misses are
+  genuine and not a catch-all masking a real document. 4dmt.gcs-web.com is 4DMT's investor
+  relations site, hosted on a third-party IR platform (gcs-web.com), and it answers 403
+  "Access Denied" to every path including the negative control — a blanket edge block on
+  non-browser clients, not evidence about what it does or does not serve.
+  NO WellKnown or SecurityTxt pointer is emitted: nothing was served.
+hit_count: 0
+path_echo_control: passed
+hosts:
+- host: https://4dmoleculartherapeutics.com
+  path_echo_control:
+    path: /.well-known/apisio-negative-control-7f3ab91c.json
+    status: 404
+    result: passed
+  documents:
+  - {path: /.well-known/security.txt, status: 404}
+  - {path: /.well-known/openid-configuration, status: 404}
+  - {path: /.well-known/oauth-authorization-server, status: 404}
+  - {path: /.well-known/oauth-protected-resource, status: 404}
+  - {path: /.well-known/api-catalog, status: 404}
+  - {path: /.well-known/ai-plugin.json, status: 404}
+  - {path: /.well-known/ucp.json, status: 404}
+  - {path: /.well-known/acp.json, status: 404}
+  - {path: /.well-known/aauth-resource.json, status: 404}
+  - {path: /.well-known/apis.json, status: 404}
+  - {path: /apis.json, status: 404}
+  - {path: /apis.yml, status: 403}
+  - {path: /.well-known/agent-card.json, status: 404}
+  - {path: /.well-known/agent.json, status: 404}
+- host: https://www.4dmoleculartherapeutics.com
+  path_echo_control:
+    path: /.well-known/apisio-negative-control-7f3ab91c.json
+    status: 404
+    result: passed
+  documents:
+  - {path: /.well-known/security.txt, status: 404}
+  - {path: /.well-known/openid-configuration, status: 404}
+  - {path: /.well-known/oauth-authorization-server, status: 404}
+  - {path: /.well-known/oauth-protected-resource, status: 404}
+  - {path: /.well-known/api-catalog, status: 404}
+  - {path: /.well-known/ai-plugin.json, status: 404}
+  - {path: /.well-known/ucp.json, status: 404}
+  - {path: /.well-known/acp.json, status: 404}
+  - {path: /.well-known/aauth-resource.json, status: 404}
+  - {path: /.well-known/apis.json, status: 404}
+  - {path: /apis.json, status: 404}
+  - {path: /apis.yml, status: 403}
+  - {path: /.well-known/agent-card.json, status: 404}
+  - {path: /.well-known/agent.json, status: 404}
+- host: https://4dmt.com
+  note: 301 alias of 4dmoleculartherapeutics.com
+  path_echo_control:
+    path: /.well-known/apisio-negative-control-7f3ab91c.json
+    status: 404
+    result: passed
+  documents:
+  - {path: /.well-known/security.txt, status: 404}
+  - {path: /.well-known/openid-configuration, status: 404}
+  - {path: /.well-known/oauth-authorization-server, status: 404}
+  - {path: /.well-known/oauth-protected-resource, status: 404}
+  - {path: /.well-known/api-catalog, status: 404}
+  - {path: /.well-known/ai-plugin.json, status: 404}
+  - {path: /.well-known/ucp.json, status: 404}
+  - {path: /.well-known/acp.json, status: 404}
+  - {path: /.well-known/aauth-resource.json, status: 404}
+  - {path: /.well-known/apis.json, status: 404}
+  - {path: /apis.json, status: 404}
+  - {path: /apis.yml, status: 403}
+  - {path: /.well-known/agent-card.json, status: 404}
+  - {path: /.well-known/agent.json, status: 404}
+- host: https://4dmt.gcs-web.com
+  note: >-
+    Third-party investor-relations platform. Returns 403 Access Denied to every path
+    including the negative control, so no conclusion can be drawn about what it serves.
+  path_echo_control:
+    path: /.well-known/apisio-negative-control-7f3ab91c.json
+    status: 403
+    result: inconclusive-host-blocks-all
+  documents:
+  - {path: /.well-known/security.txt, status: 403}
+  - {path: /.well-known/openid-configuration, status: 403}
+  - {path: /.well-known/oauth-authorization-server, status: 403}
+  - {path: /.well-known/oauth-protected-resource, status: 403}
+  - {path: /.well-known/api-catalog, status: 403}
+  - {path: /.well-known/ai-plugin.json, status: 403}
+  - {path: /.well-known/ucp.json, status: 403}
+  - {path: /.well-known/acp.json, status: 403}
+  - {path: /.well-known/aauth-resource.json, status: 403}
+  - {path: /.well-known/apis.json, status: 403}
+  - {path: /apis.json, status: 403}
+  - {path: /apis.yml, status: 403}
+  - {path: /.well-known/agent-card.json, status: 403}
+  - {path: /.well-known/agent.json, status: 403}
